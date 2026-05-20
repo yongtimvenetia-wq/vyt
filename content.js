@@ -75,7 +75,7 @@ window.siteContent = {
     projects: [
       {
         title: "AI Exploration",
-        summary: "Claude 3 Haiku embedded inside Twilio Flex providing summary drafts and article suggestions.",
+        summary: "Claude 3 Haiku embedded inside Twilio Flex providing summary drafts and article suggestions in vet chats.",
         image: "",                          // e.g. "images/project1.jpg" — leave "" for no image
         link: "ai-experience.html",         // links to the AI Experience case study
         linkLabel: "Explore Uses",            // text shown on the link button
