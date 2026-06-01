@@ -542,6 +542,14 @@
       .cs-stat-value { font-size: 2.2rem; }
     }
   </style>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-12TMMFZQM1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-12TMMFZQM1');
+  </script>
 </head>
 <body data-page="case-vet">
 
@@ -573,7 +581,7 @@
           <!-- Left: body + stats -->
           <div class="cs-body">
             <p>Kinship's tele-vet platform connects 20K+ subscribers with veterinarians over chat. The catch: wrap-up time after each consult was eating into care capacity, and summary quality varied wildly.</p>
-            <p>We embedded a Claude 3 Haiku agent directly inside the Twilio Flex console — extracting talking points, suggesting relevant articles, and drafting the client-facing summary in real time. Every suggestion is upvote/downvote-able so the model gets sharper.</p>
+            <p>We embedded a Claude 3 Haiku agent directly inside the Twilio Flex console by extracting talking points, suggesting relevant articles, and drafting the client-facing summary in real time. Every suggestion is upvote/downvote-able so the model gets sharper.</p>
 
             <div class="cs-stats">
               <div class="cs-stat">

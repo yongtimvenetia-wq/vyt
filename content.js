@@ -160,7 +160,8 @@ window.siteContent = {
           "Project management",
           "Product strategy & operations",
           "User & market research",
-          "User experience"
+          "User experience",
+          "Operational management"
         ]
       },
       {
