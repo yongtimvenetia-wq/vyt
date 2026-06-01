@@ -128,7 +128,7 @@ window.siteContent = {
         tags: ["Vettech", "Mars Petcare"],
         dates: "2022 — 2026",
         bullets: [
-          "Owned the backlog for a Twilio-based communication platform used by 15K+ agents across 96 veterinary clinics.",
+          "Owned the backlog for a Twilio-based communication platform used by 15K+ agents across 32 veterinary clinics.",
           "Led product lifecycle for the mobile tele-vet app, reaching 20K+ subscribers with NPS 76 across UK & US users.",
           "Boosted platform performance by 75%, strengthening system stability in high-frequency operational environments."
         ]
