@@ -72,7 +72,7 @@ window.siteContent = {
   // =============================================================
   portfolio: {
     intro: "A selection of projects I'm proud of. Click any tile to learn more.",
-    projects: [
+    workProjects: [
       {
         title: "AI Exploration",
         summary: "Claude 3 Haiku embedded inside Twilio Flex providing summary drafts and article suggestions in vet chats.",
@@ -112,6 +112,24 @@ window.siteContent = {
         link: "client-integrations.html",
         linkLabel: "EXPLORE INTEGRATIONS",
         tags: ["WEB", "APP"]
+      }
+    ],
+    personalProjects: [
+      {
+        title: "Gantt Builder",
+        summary: "A web app to create, share, and manage your own Gantt charts.",
+        image: "",
+        link: "https://vytgantt.netlify.app/",
+        linkLabel: "Visit site",
+        tags: ["Project Planning"]
+      },
+      {
+        title: "Please Teach Me SQL",
+        summary: "A free website where anyone can learn SQL from the ground up.",
+        image: "",
+        link: "https://pleaseteachmesql.netlify.app/",
+        linkLabel: "Visit site",
+        tags: ["Learning", "SQL"]
       }
     ]
   },

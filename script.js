@@ -135,70 +135,89 @@
   }
 
   // ===========================================================
+  function buildProjectCard(proj) {
+    const card = document.createElement("article");
+    card.className = "project-card";
+
+    if (proj.image) {
+      const img = document.createElement("img");
+      img.src = proj.image;
+      img.alt = proj.title || "";
+      img.className = "card-image";
+      card.appendChild(img);
+    }
+
+    const body = document.createElement("div");
+    body.className = "card-body";
+
+    const h = document.createElement("h3");
+    h.textContent = proj.title || "";
+    body.appendChild(h);
+
+    if (proj.summary) {
+      const para = document.createElement("p");
+      para.textContent = proj.summary;
+      body.appendChild(para);
+    }
+
+    if (Array.isArray(proj.tags) && proj.tags.length) {
+      const pills = document.createElement("div");
+      pills.className = "pills";
+      proj.tags.forEach(t => {
+        const span = document.createElement("span");
+        span.className = "pill";
+        span.textContent = t;
+        pills.appendChild(span);
+      });
+      body.appendChild(pills);
+    }
+
+    if (proj.link) {
+      const foot = document.createElement("div");
+      foot.className = "card-footer";
+      const a = linkEl(proj.link, proj.linkLabel || "View project");
+      a.className = "btn";
+      if (proj.link.startsWith("http")) {
+        a.target = "_blank";
+        a.rel = "noopener noreferrer";
+      }
+      foot.appendChild(a);
+      body.appendChild(foot);
+    }
+
+    card.appendChild(body);
+    return card;
+  }
+
+  // ===========================================================
   function renderPortfolio(p) {
     if (!p) return;
     setText(".js-portfolio-intro", p.intro);
 
-    const grid = document.querySelector(".js-portfolio-grid");
-    if (!grid) return;
-    grid.innerHTML = "";
-
-    if (!p.projects || !p.projects.length) {
-      grid.appendChild(emptyHint("No projects yet — add one in content.js under portfolio → projects."));
-      return;
+    // Work projects (carousel)
+    const workGrid = document.querySelector(".js-portfolio-grid");
+    if (workGrid) {
+      workGrid.innerHTML = "";
+      const workProjects = p.workProjects || p.projects || [];
+      if (!workProjects.length) {
+        workGrid.appendChild(emptyHint("No work projects yet — add one in content.js under portfolio → workProjects."));
+      } else {
+        workProjects.forEach(proj => workGrid.appendChild(buildProjectCard(proj)));
+        initCarousel(workGrid, workProjects.length);
+      }
     }
 
-    p.projects.forEach(proj => {
-      const card = document.createElement("article");
-      card.className = "project-card";
-
-      if (proj.image) {
-        const img = document.createElement("img");
-        img.src = proj.image;
-        img.alt = proj.title || "";
-        img.className = "card-image";
-        card.appendChild(img);
+    // Personal projects (plain grid, no carousel)
+    const personalGrid = document.querySelector(".js-personal-grid");
+    if (personalGrid) {
+      personalGrid.innerHTML = "";
+      const personalProjects = p.personalProjects || [];
+      if (!personalProjects.length) {
+        personalGrid.appendChild(emptyHint("No personal projects yet — add one in content.js under portfolio → personalProjects."));
+      } else {
+        personalProjects.forEach(proj => personalGrid.appendChild(buildProjectCard(proj)));
       }
-
-      const body = document.createElement("div");
-      body.className = "card-body";
-
-      const h = document.createElement("h3");
-      h.textContent = proj.title || "";
-      body.appendChild(h);
-
-      if (proj.summary) {
-        const para = document.createElement("p");
-        para.textContent = proj.summary;
-        body.appendChild(para);
-      }
-
-      if (Array.isArray(proj.tags) && proj.tags.length) {
-        const pills = document.createElement("div");
-        pills.className = "pills";
-        proj.tags.forEach(t => {
-          const span = document.createElement("span");
-          span.className = "pill";
-          span.textContent = t;
-          pills.appendChild(span);
-        });
-        body.appendChild(pills);
-      }
-
-      if (proj.link) {
-        const foot = document.createElement("div");
-        foot.className = "card-footer";
-        const a = linkEl(proj.link, proj.linkLabel || "View project");
-        a.className = "btn";
-        foot.appendChild(a);
-        body.appendChild(foot);
-      }
-
-      card.appendChild(body);
-      grid.appendChild(card);
-    });
-
-    initCarousel(grid, p.projects.length);
+    }
   }
 
   // ===========================================================
