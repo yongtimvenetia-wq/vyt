@@ -1097,8 +1097,9 @@ body[data-page="about"] .hero .btn.secondary {
 
 .toolbox-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr 1.5fr 1fr;
   gap: 16px;
+  align-items: start;
 }
 
 .toolbox-card {
@@ -1162,6 +1163,24 @@ body[data-page="about"] .hero .btn.secondary {
   margin-bottom: 6px;
 }
 .toolbox-card--dark ul li { color: rgba(239,236,228,.8); }
+
+/* Grouped chips layout (used in Tooling card) */
+.toolbox-group { margin-bottom: 18px; }
+.toolbox-group:last-child { margin-bottom: 0; }
+.toolbox-group-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  opacity: .5;
+  margin-bottom: 8px;
+}
+.toolbox-card--dark .pill {
+  border-color: rgba(239,236,228,.3);
+  color: rgba(239,236,228,.8);
+}
 
 @media (max-width: 900px) {
   .toolbox-grid { grid-template-columns: 1fr; }

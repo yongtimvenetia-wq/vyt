@@ -592,7 +592,7 @@
 
     const label = document.createElement("span");
     label.className = "toolbox-label";
-    label.textContent = "03 / Toolbox";
+    label.textContent = "04 / TOOLBOX";
     header.appendChild(label);
     wrap.appendChild(header);
 
@@ -624,13 +624,36 @@
 
       el.appendChild(titleRow);
 
-      const ul = document.createElement("ul");
-      (card.items || []).forEach(item => {
-        const li = document.createElement("li");
-        li.textContent = item;
-        ul.appendChild(li);
-      });
-      el.appendChild(ul);
+      if (card.groups && card.groups.length) {
+        card.groups.forEach(group => {
+          const groupEl = document.createElement("div");
+          groupEl.className = "toolbox-group";
+
+          const lbl = document.createElement("span");
+          lbl.className = "toolbox-group-label";
+          lbl.textContent = group.label;
+          groupEl.appendChild(lbl);
+
+          const chipsEl = document.createElement("div");
+          chipsEl.className = "pills";
+          (group.chips || []).forEach(chip => {
+            const pill = document.createElement("span");
+            pill.className = "pill";
+            pill.textContent = chip;
+            chipsEl.appendChild(pill);
+          });
+          groupEl.appendChild(chipsEl);
+          el.appendChild(groupEl);
+        });
+      } else {
+        const ul = document.createElement("ul");
+        (card.items || []).forEach(item => {
+          const li = document.createElement("li");
+          li.textContent = item;
+          ul.appendChild(li);
+        });
+        el.appendChild(ul);
+      }
 
       grid.appendChild(el);
     });

@@ -178,19 +178,17 @@ window.siteContent = {
           "Project management",
           "Product strategy & operations",
           "User & market research",
-          "User experience",
-          "Operational management"
+          "User experience"
         ]
       },
       {
         title: "Tooling",
         variant: "dark",
         number: "02",
-        items: [
-          "Firebase / Metabase / Tableau",
-          "GA4 / Redshift / SQL",
-          "Iterable / Contentful / Unleash / Airtable",
-          "Figma Make / Devin / Gemini / Notion / Perplexity / Claude Cowork"
+        groups: [
+          { label: "DATA & METRICS", chips: ["Firebase", "Metabase", "Tableau", "GA4", "Redshift", "SQL"] },
+          { label: "CONTENT & GROWTH", chips: ["Iterable", "Contentful", "Unleash", "Airtable"] },
+          { label: "AI & BUILD", chips: ["Figma Make", "Devin", "Gemini", "Notion", "Perplexity", "Claude"] }
         ]
       },
       {
