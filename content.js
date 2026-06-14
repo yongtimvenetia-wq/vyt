@@ -143,7 +143,7 @@ window.siteContent = {
       {
         title: "Product Manager · Vet Operations",
         company: "Kinship",
-        tags: ["Vettech", "Mars Petcare"],
+        tags: ["Petcare", "Telehealth"],
         dates: "2022 — 2026",
         bullets: [
           "Owned the backlog for a Twilio-based communication platform used by 15K+ agents across 32 veterinary clinics.",
