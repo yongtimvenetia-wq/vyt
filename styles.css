@@ -268,6 +268,10 @@ body[data-page="about"] .hero {
 .stat-item {
   opacity: .8;
 }
+.stat-sparkle {
+  color: #f5c518;
+  font-size: 1em;
+}
 .stat-badge {
   background: var(--accent-ink);
   color: var(--accent);
