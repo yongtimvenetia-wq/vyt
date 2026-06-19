@@ -130,6 +130,14 @@ window.siteContent = {
         link: "https://pleaseteachmesql.netlify.app/",
         linkLabel: "Visit site",
         tags: ["Learning", "SQL"]
+      },
+      {
+        title: "Vibe Kanban",
+        summary: "Allows you to create Kanban tasks, capture meeting notes, and convert transcripts into structured action items.",
+        image: "",
+        link: "https://yongtimvenetia-wq.github.io/kanban-board/",
+        linkLabel: "Visit site",
+        tags: ["Productivity"]
       }
     ]
   },
