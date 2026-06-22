@@ -174,9 +174,10 @@ body[data-page="about"] .hero {
   color: var(--accent-ink);
 }
 
-/* Higher specificity to beat .hero h1 */
+/* Higher specificity to beat .hero h1.
+   Min lowered so the name scales down on small phones instead of overflowing. */
 .hero h1.about-headline {
-  font-size: clamp(5rem, 14vw, 13rem);
+  font-size: clamp(2.75rem, 13vw, 13rem);
 }
 
 .hero h1 {
@@ -258,6 +259,8 @@ body[data-page="about"] .hero {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 20px;
   padding: 16px 0;
   font-family: var(--font-mono);
   font-size: 11px;
@@ -1306,6 +1309,44 @@ body { animation: pageIn .35s var(--ease); }
   .site-header .container { padding-top: 12px; padding-bottom: 12px; }
   .nav a { padding: 8px 14px; font-size: 10px; }
   .section { padding: 48px 0; }
+}
+
+/* ---------- Personal grid: force wrap (beats .project-grid nowrap) ---------- */
+.project-grid.js-personal-grid {
+  flex-wrap: wrap;
+}
+
+/* ---------- Mobile-friendly refinements ---------- */
+/* Prevent any element from forcing sideways scrolling on phones */
+html, body { overflow-x: hidden; }
+/* Long uppercase mono labels can be wide — let them break rather than overflow */
+.stat-item, .currently-badge, .role-tags, .cred-issuer, .js-footer-copy {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 700px) {
+  /* Carousel: hide arrow buttons so the card gets the full width; swipe + dots remain */
+  .carousel-btn { display: none; }
+  .carousel-wrap { gap: 0; }
+  /* Fun Stuff grid: drop the wide side padding that squeezed cards */
+  .js-personal-grid { padding: 0; }
+}
+
+@media (max-width: 600px) {
+  /* Bigger, easier nav tap targets */
+  .nav { gap: 6px; }
+  .nav a { padding: 11px 16px; font-size: 10px; }
+  /* Stat strip reads better stacked on the narrowest screens */
+  .stat-strip-inner { font-size: 10px; }
+  /* Credential tickets: tighten so they don't overflow */
+  .cred-meta { gap: 20px; }
+  .cred-stub { width: 92px; }
+  .cred-ticket::after { left: 92px; }
+  /* Operating-principle quote a touch smaller for comfortable reading */
+  .op-footer { gap: 12px; }
+  /* Let role tag chips wrap instead of overflowing the card */
+  .exp-card-top { flex-wrap: wrap; gap: 8px; }
+  .role-tags { white-space: normal; }
 }
 
 /* Respect reduced motion */

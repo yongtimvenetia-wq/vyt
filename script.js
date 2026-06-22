@@ -291,6 +291,24 @@
     if (viewport) {
       viewport.addEventListener("mouseenter", stopAuto);
       viewport.addEventListener("mouseleave", startAuto);
+
+      // Touch swipe support for mobile
+      var touchStartX = 0;
+      var touchStartY = 0;
+      viewport.addEventListener("touchstart", function (e) {
+        stopAuto();
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+      }, { passive: true });
+      viewport.addEventListener("touchend", function (e) {
+        var dx = e.changedTouches[0].clientX - touchStartX;
+        var dy = e.changedTouches[0].clientY - touchStartY;
+        // Only treat as a swipe if mostly horizontal and far enough
+        if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
+          if (dx < 0) next(); else prev();
+        }
+        startAuto();
+      }, { passive: true });
     }
 
     // Recalculate on resize (dots may change if breakpoint shifts)
