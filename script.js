@@ -216,6 +216,7 @@
         personalGrid.appendChild(emptyHint("No personal projects yet — add one in content.js under portfolio → personalProjects."));
       } else {
         personalProjects.forEach(proj => personalGrid.appendChild(buildProjectCard(proj)));
+        initCarousel(personalGrid, personalProjects.length);
       }
     }
   }
@@ -225,10 +226,14 @@
     if (!grid || count < 2) return;
 
     var GAP      = 24;
-    var viewport = document.querySelector(".carousel-viewport");
-    var prevBtn  = document.querySelector(".carousel-prev");
-    var nextBtn  = document.querySelector(".carousel-next");
-    var dotsWrap = document.querySelector(".js-carousel-dots");
+    // Scope all controls to THIS carousel's own section so multiple
+    // carousels on the same page each drive their own buttons/dots.
+    var wrap     = grid.closest(".carousel-wrap");
+    var scope    = grid.closest(".container") || document;
+    var viewport = grid.closest(".carousel-viewport");
+    var prevBtn  = wrap ? wrap.querySelector(".carousel-prev") : null;
+    var nextBtn  = wrap ? wrap.querySelector(".carousel-next") : null;
+    var dotsWrap = scope.querySelector(".js-carousel-dots");
     var current  = 0;
     var timer;
 

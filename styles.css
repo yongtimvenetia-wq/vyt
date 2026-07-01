@@ -460,15 +460,8 @@ body[data-page="about"] .hero .btn.secondary {
   border-bottom: 1px solid var(--border-solid);
 }
 
-/* Personal projects grid — matches work card sizing.
-   Padding mirrors the carousel button+gap offset (42px + 12px each side)
-   so the content area is the same width as .carousel-viewport. */
-.js-personal-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
-  padding: 0 54px;
-}
+/* Personal projects grid — now a carousel, so it inherits the
+   single-row nowrap layout from .project-grid (same as Work Stuff). */
 
 /* ============================================================
    Carousel wrapper (Portfolio page)
@@ -1309,11 +1302,6 @@ body { animation: pageIn .35s var(--ease); }
   .site-header .container { padding-top: 12px; padding-bottom: 12px; }
   .nav a { padding: 8px 14px; font-size: 10px; }
   .section { padding: 48px 0; }
-}
-
-/* ---------- Personal grid: force wrap (beats .project-grid nowrap) ---------- */
-.project-grid.js-personal-grid {
-  flex-wrap: wrap;
 }
 
 /* ---------- Mobile-friendly refinements ---------- */

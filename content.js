@@ -138,6 +138,14 @@ window.siteContent = {
         link: "https://yongtimvenetia-wq.github.io/kanban-board/",
         linkLabel: "Visit site",
         tags: ["Productivity"]
+      },
+      {
+        title: "Little Roots",
+        summary: "Tools to help parenting be less chaotic.",
+        image: "",
+        link: "https://yongtimvenetia-wq.github.io/little-roots/",
+        linkLabel: "Dive In",
+        tags: ["Family Tools"]
       }
     ]
   },
