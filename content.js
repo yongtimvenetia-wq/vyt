@@ -146,6 +146,14 @@ window.siteContent = {
         link: "https://yongtimvenetia-wq.github.io/little-roots/",
         linkLabel: "Dive In",
         tags: ["Family Tools"]
+      },
+      {
+        title: "Recipe Saver",
+        summary: "Save recipes for you to find later",
+        image: "",
+        link: "https://remembertheflav.netlify.app/",
+        linkLabel: "Add your flavors",
+        tags: ["Get cooking"]
       }
     ]
   },
