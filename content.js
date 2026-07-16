@@ -133,7 +133,7 @@ window.siteContent = {
       },
       {
         title: "Vibe Kanban",
-        summary: "Allows you to create Kanban tasks, capture meeting notes, and convert transcripts into structured action items.",
+        summary: "Create tasks and convert transcripts into structured action items.",
         image: "",
         link: "https://yongtimvenetia-wq.github.io/kanban-board/",
         linkLabel: "Visit site",
@@ -154,6 +154,14 @@ window.siteContent = {
         link: "https://remembertheflav.netlify.app/",
         linkLabel: "Add your flavors",
         tags: ["Get cooking"]
+      },
+      {
+        title: "Little Moments",
+        summary: "A simple journal that helps you remember the good moments that are easy to forget.",
+        image: "",
+        link: "https://yongtimvenetia-wq.github.io/grateful/#",
+        linkLabel: "Reflect",
+        tags: ["Mindfulness", "Wellness"]
       }
     ]
   },
