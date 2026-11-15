@@ -627,26 +627,13 @@ body[data-page="about"] .hero .btn.secondary {
    Experience entries
    ============================================================ */
 /* Experience carousel */
-.exp-carousel-wrap {
-  position: relative;
-}
-.exp-carousel-viewport {
-  overflow: hidden;
-}
 .exp-list {
   display: flex;
   gap: 24px;
-  transition: transform .4s cubic-bezier(.22,.61,.36,1);
-}
-.exp-carousel-dots {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 20px;
 }
 
 .exp-card {
-  flex: 0 0 100%;
+  flex: 0 0 calc(65% - 12px);
   min-width: 0;
   background: var(--surface);
   border: 1px solid var(--border-solid);
