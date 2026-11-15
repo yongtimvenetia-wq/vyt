@@ -624,7 +624,7 @@
 
     const label = document.createElement("span");
     label.className = "toolbox-label";
-    label.textContent = "04 / TOOLBOX";
+    label.textContent = "03 / TOOLBOX";
     header.appendChild(label);
     wrap.appendChild(header);
 
