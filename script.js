@@ -386,6 +386,42 @@
 
         list.appendChild(card);
       });
+
+      // Wire up experience carousel (manual, no auto-advance)
+      const roles = e.roles || [];
+      if (roles.length > 1) {
+        let cur = 0;
+        const viewport = list.closest(".exp-carousel-viewport");
+        const prevBtn = document.querySelector(".js-exp-prev");
+        const nextBtn = document.querySelector(".js-exp-next");
+        const dotsWrap = document.querySelector(".js-exp-dots");
+
+        function getStep() { return list.children[0] ? list.children[0].offsetWidth + 24 : 0; }
+
+        function buildExpDots() {
+          if (!dotsWrap) return;
+          dotsWrap.innerHTML = "";
+          roles.forEach((_, i) => {
+            const dot = document.createElement("button");
+            dot.className = "carousel-dot" + (i === cur ? " active" : "");
+            dot.setAttribute("aria-label", "Go to role " + (i + 1));
+            dot.onclick = () => goTo(i);
+            dotsWrap.appendChild(dot);
+          });
+        }
+
+        function goTo(i) {
+          cur = Math.max(0, Math.min(i, roles.length - 1));
+          list.style.transform = "translateX(-" + (cur * getStep()) + "px)";
+          if (dotsWrap) dotsWrap.querySelectorAll(".carousel-dot").forEach((d, j) => d.classList.toggle("active", j === cur));
+        }
+
+        if (prevBtn) prevBtn.addEventListener("click", () => goTo(cur - 1));
+        if (nextBtn) nextBtn.addEventListener("click", () => goTo(cur + 1));
+        window.addEventListener("resize", () => goTo(cur));
+        buildExpDots();
+        goTo(0);
+      }
     }
 
     // Education
