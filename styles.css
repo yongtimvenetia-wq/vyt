@@ -633,7 +633,7 @@ body[data-page="about"] .hero .btn.secondary {
 }
 
 .exp-card {
-  flex: 0 0 calc(65% - 12px);
+  flex: 0 0 100%;
   min-width: 0;
   background: var(--surface);
   border: 1px solid var(--border-solid);

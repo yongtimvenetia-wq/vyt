@@ -245,7 +245,8 @@ window.siteContent = {
           "Tablet",
           "Webviews",
           "Data analytics",
-          "AI-powered experiences"
+          "AI-powered experiences",
+          "Call center"
         ]
       }
     ],
