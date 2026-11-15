@@ -341,7 +341,10 @@
         const card = document.createElement("article");
         card.className = "exp-card";
 
-        // Top row: date left, tags right
+        // LEFT column — identity
+        const left = document.createElement("div");
+        left.className = "exp-card-left";
+
         const top = document.createElement("div");
         top.className = "exp-card-top";
 
@@ -356,24 +359,27 @@
           tags.textContent = role.tags.join(" · ");
           top.appendChild(tags);
         }
+        left.appendChild(top);
 
-        card.appendChild(top);
-
-        // Large company name
+        const bottom = document.createElement("div");
         if (role.company) {
           const co = document.createElement("span");
           co.className = "role-company";
           co.textContent = role.company;
-          card.appendChild(co);
+          bottom.appendChild(co);
         }
-
-        // Italic role title
         const title = document.createElement("p");
         title.className = "role-title";
         title.textContent = role.title || "";
-        card.appendChild(title);
+        bottom.appendChild(title);
+        left.appendChild(bottom);
 
-        // Numbered bullets
+        card.appendChild(left);
+
+        // RIGHT column — bullets
+        const right = document.createElement("div");
+        right.className = "exp-card-right";
+
         if (Array.isArray(role.bullets) && role.bullets.length) {
           const ul = document.createElement("ul");
           role.bullets.forEach(b => {
@@ -381,9 +387,10 @@
             li.textContent = b;
             ul.appendChild(li);
           });
-          card.appendChild(ul);
+          right.appendChild(ul);
         }
 
+        card.appendChild(right);
         list.appendChild(card);
       });
 

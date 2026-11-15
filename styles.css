@@ -638,59 +638,77 @@ body[data-page="about"] .hero .btn.secondary {
   background: var(--surface);
   border: 1px solid var(--border-solid);
   border-radius: var(--radius);
-  padding: 32px 36px 36px;
+  padding: 0;
   box-shadow: var(--shadow-sm);
-  transition: transform .2s var(--ease), box-shadow .2s var(--ease);
-}
-.exp-card:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
 }
 
-/* Top row: date left, tags right */
+/* Left identity column */
+.exp-card-left {
+  background: var(--ink);
+  color: var(--surface);
+  padding: 40px 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Right bullets column */
+.exp-card-right {
+  padding: 40px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Top meta row */
 .exp-card-top {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
+  align-items: flex-start;
+  margin-bottom: 32px;
+  gap: 8px;
 }
 .exp-card .role-dates {
   font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: .04em;
-  color: var(--muted);
+  color: rgba(255,255,255,.45);
 }
 .exp-card .role-tags {
   font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: .05em;
-  color: var(--ink-soft);
-  border: 1px solid var(--border-solid);
+  color: rgba(255,255,255,.55);
+  border: 1px solid rgba(255,255,255,.2);
   border-radius: 999px;
   padding: 5px 14px;
   white-space: nowrap;
 }
 
-/* Company name — large serif */
+/* Company name */
 .exp-card .role-company {
   display: block;
   font-family: var(--font-serif);
-  font-size: 2.6rem;
+  font-size: clamp(1.9rem, 3vw, 2.8rem);
   font-weight: 400;
-  color: var(--ink);
+  color: #fff;
   line-height: 1.1;
   letter-spacing: -.01em;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
-/* Job title — italic below company */
+
+/* Job title */
 .exp-card .role-title {
-  font-size: 15px;
-  color: var(--ink-soft);
+  font-size: 13px;
+  color: rgba(255,255,255,.5);
   font-style: italic;
   font-family: var(--font-sans);
   font-weight: 400;
-  margin: 0 0 24px;
-  line-height: 1.4;
+  margin: 0;
+  line-height: 1.5;
 }
 
 /* Numbered bullet list */
@@ -701,7 +719,7 @@ body[data-page="about"] .hero .btn.secondary {
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 16px;
 }
 .exp-card li {
   counter-increment: exp-counter;
@@ -710,6 +728,12 @@ body[data-page="about"] .hero .btn.secondary {
   font-size: 14px;
   color: var(--ink);
   line-height: 1.6;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.exp-card li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
 }
 .exp-card li::before {
   content: counter(exp-counter, decimal-leading-zero);
@@ -718,6 +742,12 @@ body[data-page="about"] .hero .btn.secondary {
   color: var(--muted);
   padding-top: 3px;
   flex-shrink: 0;
+}
+
+@media (max-width: 720px) {
+  .exp-card { grid-template-columns: 1fr; }
+  .exp-card-left { padding: 28px 24px; }
+  .exp-card-right { padding: 28px 24px; }
 }
 
 /* Education */
