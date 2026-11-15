@@ -173,6 +173,19 @@ window.siteContent = {
     intro: "Where I've shipped.",
     roles: [
       {
+        title: "Program Manager · Contact Center",
+        company: "Mars Veterinary Health",
+        tags: ["Petcare", "Call Center"],
+        dates: "2026 — Present",
+        bullets: [
+          "Leading the roadmap to modernize the contact center technology stack supporting 430+ call center agents across Banfield and VCA hospitals.",
+          "Authored Business Requirements Documents (BRDs) to capture and align stakeholder needs for the modernized contact center platform.",
+          "Led the decommission and replacement of the existing telephony solution for VCA call center agents.",
+          "Partnered with external vendors to validate and launch solutions against defined business requirements.",
+          "Defined and maintained the program roadmap, coordinating leadership reviews to ensure executive visibility and alignment."
+        ]
+      },
+      {
         title: "Product Manager · Vet Operations",
         company: "Kinship",
         tags: ["Petcare", "Telehealth"],
